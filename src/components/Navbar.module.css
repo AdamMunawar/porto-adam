@@ -1,0 +1,122 @@
+:root { /* Pastikan variabel ini sudah ada di index.css */
+  --primary-purple: #8E44AD;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a7a7a7;
+  --card-bg: rgba(30, 30, 30, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --sidebar-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sidebar {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-right: 1px solid var(--border-color);
+  font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mendorong tombol toggle ke bawah */
+  transition: width var(--sidebar-transition);
+  width: 260px; /* Lebar saat diperluas */
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Lebar saat diminimalkan */
+}
+
+/* Menyembunyikan teks saat sidebar diminimalkan */
+.sidebar.collapsed .linkText,
+.sidebar.collapsed .logoText {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  display: none; /* Sembunyikan sepenuhnya */
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap; /* Mencegah teks wrap */
+}
+
+.logoIcon {
+  color: var(--primary-purple);
+  font-size: 2rem;
+  flex-shrink: 0; /* Mencegah ikon menyusut */
+}
+
+.logoText {
+  margin-left: 12px;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.navMenu {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap; /* Mencegah teks wrap */
+  overflow: hidden;
+}
+
+.linkIcon {
+  font-size: 1.5rem;
+  margin-right: 20px;
+  flex-shrink: 0; /* Mencegah ikon menyusut */
+}
+
+.linkText {
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.activeLink {
+  background-color: rgba(142, 68, 173, 0.15);
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  padding: 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap; /* Mencegah teks wrap */
+  overflow: hidden;
+}
+
+.toggleButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
